@@ -32,6 +32,6 @@ clean:
 	rm $(BINARY_NAME)
 
 push:
-	@echo "Pushing Code to Github..."
 	chmod 777 pushag.sh
 	bash pushag.sh
+	@echo "Pushing Code to Github..."
