@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: '', sans-serif;
+}
+
+html, body, #hero {
+    height: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero section styles */
+#hero {
+    background-image: url("../images/chatting.png"), url("../images/chat.png");
+    background-position: top left, bottom right;
+    background-size: 300px, 210px;
+    background-repeat: no-repeat;
+    background-color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.96);
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero .container {
+    animation: fadeInUp 1s forwards;
+}
+
+#hero h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: rgba(0, 0, 0, 0.96);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.96);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #hero {
+        padding: 80px 0;
+    }
+
+    #hero h1 {
+        font-size: 30px;
+    }
+
+    #hero p {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,121 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/chatbg1.png');  /* Point to the correct path of your image */
+    background-size: cover;  /* This will cover the entire viewport */
+    background-repeat: no-repeat;  /* This will prevent the image from repeating */
+    background-attachment: fixed;  /* This will make the background fixed when scrolling */
+}
+
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    max-width: 650px;  /* Adjusted the max-width here */
+    margin: 5% auto;
+    border: 1px solid #000;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.chat-header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 20px;
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.message {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.message .name {
+    padding: 2px 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.message .text {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.sent .name {
+    background-color: #fff;
+    color: #000;
+    margin-left: auto;
+    border-top-right-radius: 8px;
+}
+
+.message.sent .text {
+    background-color: #000;
+    color: #fff;
+    margin-left: auto;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 8px;
+}
+
+.message.received .name {
+    background-color: #000;
+    color: #fff;
+    margin-right: auto;
+    border-top-left-radius: 8px;
+}
+
+.message.received .text {
+    background-color: #fff;
+    color: #000;
+    margin-right: auto;
+    border-top-left-radius: 0;
+    border: 1px solid #000;
+    border-bottom-left-radius: 8px;
+}
+
+.input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #eee;
+}
+
+.input-area input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-right: 10px;
+}
+
+.input-area button {
+    padding: 8px 16px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.input-area button:hover {
+    background-color: #444;
+}
