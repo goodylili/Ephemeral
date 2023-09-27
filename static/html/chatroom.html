@@ -10,7 +10,12 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            background-image: url('../images/chatbg3.png');  /* Point to the correct path of your image */
+            background-size: cover;  /* This will cover the entire viewport */
+            background-repeat: no-repeat;  /* This will prevent the image from repeating */
+            background-attachment: fixed;  /* This will make the background fixed when scrolling */
         }
+
 
         .chat-container {
             display: flex;
@@ -125,7 +130,7 @@
 <body>
 <div class="chat-container">
     <div class="chat-header">
-        Room: [Room Name]
+        Room: [Ephemeral 1]
     </div>
     <div class="messages">
         <div class="message sent">
@@ -148,3 +153,7 @@
 </div>
 </body>
 </html>
+
+
+
+This is perfect but I want a transparent container extended from the message on the You (sender)
