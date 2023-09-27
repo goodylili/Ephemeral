@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 👻 Ephemeral </title>
     <link href="../css/style.css" rel="stylesheet" type="text/css">
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form[action="/create-chat"]');
+            const copyButton = document.getElementById('copyButton');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                copyButton.style.display = 'block';  // Show the button
+            });
+
+            copyButton.addEventListener('click', function() {
+                const textToCopy = this.innerText;
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Text copied to clipboard!');
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="content">
@@ -14,6 +37,7 @@
             <input type="text" placeholder="Enter your Name" class="username" name="username" required>
             <input type="text" placeholder="Enter Room Name" class="roomname" name="roomname" required>
             <input type="submit" value="Enter">
+            <button id="copyButton">Copy Link</button>
         </form>
     </div>
 </div>
