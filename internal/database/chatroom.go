@@ -10,7 +10,7 @@ import (
 
 type ChatRoom struct {
 	ID        string
-	Users     []*User
+	Users     []User
 	Messages  []Message
 	CreatedAt time.Time
 }
