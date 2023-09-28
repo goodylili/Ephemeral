@@ -1,13 +1,13 @@
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form[action="/create-chat"]');
     const copyButton = document.getElementById('copyButton');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
         copyButton.style.display = 'block';  // Show the button
     });
 
-    copyButton.addEventListener('click', function() {
+    copyButton.addEventListener('click', function () {
         const textToCopy = this.innerText;
         const textArea = document.createElement('textarea');
         textArea.value = textToCopy;
