@@ -14,7 +14,7 @@ type Message struct {
 	Time       time.Time
 }
 
-func (c Client) addMessageToChatRoom(ctx context.Context, msg Message) error {
+func (c Client) AddMessageToChatRoom(ctx context.Context, msg Message) error {
 	// Fetch the chat room data from Redis using the chat room's ID.
 	data, err := c.Client.Get(ctx, msg.ChatRoomID).Result()
 	if err != nil {
@@ -49,4 +49,23 @@ func (c Client) addMessageToChatRoom(ctx context.Context, msg Message) error {
 	}
 
 	return nil
+}
+
+func (c Client) GetMessages(ctx context.Context, chatRoomID string) ([]Message, error) {
+	// Fetch the chat room data from Redis using the chat room's ID.
+	data, err := c.Client.Get(ctx, chatRoomID).Result()
+	if err != nil {
+		log.Printf("Failed to fetch chat room with ID %s from Redis: %v", chatRoomID, err)
+		return nil, err
+	}
+
+	// Deserialize the data back into a ChatRoom struct.
+	var room ChatRoom
+	err = json.Unmarshal([]byte(data), &room)
+	if err != nil {
+		log.Printf("Failed to deserialize chat room data: %v", err)
+		return nil, err
+	}
+
+	return room.Messages, nil
 }

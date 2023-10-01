@@ -1,6 +1,8 @@
 package database
 
-import "github.com/gorilla/websocket"
+import (
+	"github.com/gorilla/websocket"
+)
 
 type User struct {
 	Username string

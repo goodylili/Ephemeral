@@ -10,16 +10,27 @@ import (
 
 type ChatRoom struct {
 	ID        string
-	Users     []User
+	User1     User
+	User2     User
 	Messages  []Message
 	CreatedAt time.Time
 }
 
-// Modified function that takes an initialized ChatRoom instance.
-func (c Client) createChatRoom(ctx context.Context, room ChatRoom) (string, error) {
-	// Ensure the ChatRoom instance has a unique ID. If not, assign one.
+func (c Client) createOrJoinChatRoom(ctx context.Context, room ChatRoom) (string, error) {
+	// Check if the room ID is provided
 	if room.ID == "" {
 		room.ID = uuid.New().String()
+	} else {
+		// Check if a chatroom with the given ID already exists in Redis
+		exists, err := c.Client.Exists(ctx, room.ID).Result()
+		if err != nil {
+			log.Printf("Failed to check existence of chat room: %v", err)
+			return "", err
+		}
+		if exists > 0 {
+			// The room already exists, so return the room ID for "joining"
+			return room.ID, nil
+		}
 	}
 
 	// Serialize the ChatRoom instance to a JSON string
