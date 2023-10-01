@@ -11,7 +11,7 @@ COPY . .
 RUN go build -o server ./cmd/server
 
 # Final stage
-FROM alpine:latest
+FROM alpine:latest AS production
 
 # Set the working directory inside the final container
 WORKDIR /app
