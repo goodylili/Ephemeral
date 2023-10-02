@@ -3,10 +3,10 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-image: url('../images/chatbg1.png');  /* Point to the correct path of your image */
-    background-size: cover;  /* This will cover the entire viewport */
-    background-repeat: no-repeat;  /* This will prevent the image from repeating */
-    background-attachment: fixed;  /* This will make the background fixed when scrolling */
+    background-image: url('../images/chatbg1.png'); /* Point to the correct path of your image */
+    background-size: cover; /* This will cover the entire viewport */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed; /* This will make the background fixed when scrolling */
 }
 
 
@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 80vh;
-    max-width: 650px;  /* Adjusted the max-width here */
+    max-width: 650px; /* Adjusted the max-width here */
     margin: 5% auto;
     border: 1px solid #000;
     background-color: #fff;

@@ -28,3 +28,13 @@ func NewMessageService(repo MessageRepo) MessageService {
 		Repo: repo,
 	}
 }
+
+// AddMessageToChatRoom adds a message to a chat room
+func (s MessageService) AddMessageToChatRoom(ctx context.Context, msg Message) error {
+	return s.Repo.AddMessageToChatRoom(ctx, msg)
+}
+
+// GetMessages gets all messages from a chat room
+func (s MessageService) GetMessages(ctx context.Context, chatRoomID string) ([]Message, error) {
+	return s.Repo.GetMessages(ctx, chatRoomID)
+}

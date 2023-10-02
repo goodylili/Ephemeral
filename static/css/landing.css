@@ -5,8 +5,10 @@
 }
 
 body {
-    font-family: '', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+
 }
+
 
 html, body, #hero {
     height: 100%;
@@ -20,7 +22,6 @@ html, body, #hero {
 
 /* Hero section styles */
 #hero {
-    background-image: url("../images/chatting.png"), url("../images/chat.png");
     background-position: top left, bottom right;
     background-size: 300px, 210px;
     background-repeat: no-repeat;
@@ -44,21 +45,32 @@ html, body, #hero {
 
 #hero p {
     font-size: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Reduced margin for space between paragraph and buttons */
 }
 
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    background-color: rgba(0, 0, 0, 0.96);
-    color: rgb(255, 255, 255);
+    background-color: transparent; /* Set the initial color to transparent */
+    color: rgba(0, 0, 0, 0.96);
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    margin-right: 10px; /* Spacing between the buttons */
+    border: 2px solid black; /* Adding a black border around the button */
+}
+
+
+.btn:active { /* This will trigger when the button is clicked */
+    background-color: rgba(0, 0, 0, 0.96);
+}
+
+.join-btn {
+    margin-right: 0; /* Ensures no margin on the right side for the join button */
 }
 
 .btn:hover {
-    background-color: rgba(0, 0, 0, 0.96);
+    background-color: rgba(0, 0, 0, 0.2); /* Slight change for hover effect to give some feedback on hover */
 }
 
 @keyframes fadeInUp {

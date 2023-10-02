@@ -5,6 +5,8 @@ import (
 )
 
 type User struct {
-	Username string
-	Conn     *websocket.Conn
+	ID         string
+	Username   string
+	ChatRoomID string
+	WebSocket  *websocket.Conn
 }
