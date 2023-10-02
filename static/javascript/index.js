@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     copyButton.addEventListener('click', function () {
         const textToCopy = this.innerText;
-        const textArea = document.createElement('textarea');
+        const textArea = documen.createElement('textarea');
         textArea.value = textToCopy;
         document.body.appendChild(textArea);
         textArea.select();
