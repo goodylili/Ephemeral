@@ -32,10 +32,7 @@ clean:
 	rm $(BINARY_NAME)
 
 push:
-	git add .
-	@echo -n "What's the commit message "
-	read response
-	git commit -m "$response"
-	git push origin main
-	@echo "Pushing Code to Github..."
+	@echo "Pushing to GitHub..."
+	chmod 777 pushag.sh
+	bash pushag.sh
 
