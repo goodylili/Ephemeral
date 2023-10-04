@@ -93,3 +93,35 @@ input[type="submit"]:hover, button:hover {
     margin-bottom: 15px; /* Adjusted margin for better spacing */
     cursor: not-allowed;
 }
+
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 0 20px; /* Removed the padding inside the box */
+}
+
+.btn-back, .btn-join {
+    padding: 10px 15px;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;  /* Added individual borders around each button */
+    border-radius: 5px;       /* Rounded corners for individual buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.btn-join {
+    text-align: right; /* align the text to the right for this button */
+    margin-left: 10px; /* space between the two buttons if they touch */
+}
+
+.btn-back:hover, .btn-join:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+

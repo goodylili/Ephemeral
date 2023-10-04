@@ -25,11 +25,13 @@ test:
 	@echo "Running tests..."
 	go test -v ./...
 
+
 # Remove build artifacts
 clean:
 	@echo "Cleaning up..."
 	go clean
 	rm $(BINARY_NAME)
+
 
 push:
 	@echo "Pushing to GitHub..."

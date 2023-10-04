@@ -10,6 +10,7 @@ COPY . .
 # Build the Go application
 RUN go build -o server ./cmd/server
 
+
 # Final stage
 FROM alpine:latest AS production
 

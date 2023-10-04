@@ -6,9 +6,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-
 }
-
 
 html, body, #hero {
     height: 100%;
@@ -60,7 +58,6 @@ html, body, #hero {
     border: 2px solid black; /* Adding a black border around the button */
 }
 
-
 .btn:active { /* This will trigger when the button is clicked */
     background-color: rgba(0, 0, 0, 0.96);
 }
@@ -70,7 +67,8 @@ html, body, #hero {
 }
 
 .btn:hover {
-    background-color: rgba(0, 0, 0, 0.2); /* Slight change for hover effect to give some feedback on hover */
+    background-color: black; /* This will make the button turn black on hover */
+    color: white; /* Changing text color to white for contrast */
 }
 
 @keyframes fadeInUp {

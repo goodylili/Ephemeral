@@ -11,10 +11,12 @@
 <body>
 <div class="content">
     <!-- Back to Landing button -->
-    <button class="btn-back">← Back to Landing</button>
+    <button class="btn-back" onclick="window.location.href='landing.html'">Back to Landing</button>
+
+
     <h3>Join an Existing Ephemeral 👻 Chatroom:</h3>
 
-    <form action="/join-chat" method="POST" class="join-form">
+    <form action="" method="POST" class="join-form">
         <input type="text" placeholder="Enter Username" name="username" required>
         <input type="text" placeholder="Enter Chatroom ID" name="chatroomId" required>
         <input type="submit" value="Join">

@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ws.send(input.value);
 
         // Create a new message div for the sent message.
-        let div = document.createElement("div");
+        let div = docume3nt.createElement("div");
         div.className = "message sent";
 
         // Add the sender's name (You) to the message.
