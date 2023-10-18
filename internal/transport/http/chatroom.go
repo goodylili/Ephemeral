@@ -1,12 +1,11 @@
 package http
 
 import (
-	"Ephemeral/internal/chatroom"
 	"io/ioutil"
 	"net/http"
 )
 
-func handleJoinChatRoomForm(writer http.ResponseWriter, request *http.Request) {
+func (h *Handler) handleJoinChatRoomForm(writer http.ResponseWriter, request *http.Request) {
 	err := request.ParseForm()
 	if err != nil {
 		http.Error(writer, "This form is invalid", http.StatusBadRequest)
@@ -23,13 +22,14 @@ func handleJoinChatRoomForm(writer http.ResponseWriter, request *http.Request) {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 	}
 
-	err = chatroom.JoinChatRoom(request.Context(), username, chatroomId)
+	err = h.ChatRoom.JoinChatRoom(request.Context(), username, chatroomId)
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 	}
+
 }
 
-func handleCreateChatRoomForm(writer http.ResponseWriter, request *http.Request) {
+func (h *Handler) handleCreateChatRoomForm(writer http.ResponseWriter, request *http.Request) {
 	err := request.ParseForm()
 	if err != nil {
 		http.Error(writer, "This form is invalid", http.StatusBadRequest)
@@ -47,7 +47,7 @@ func handleCreateChatRoomForm(writer http.ResponseWriter, request *http.Request)
 		http.Error(writer, "This form is invalid", http.StatusBadRequest)
 	}
 
-	err = chatroom.CreateChatRoom(request.Context(), username, roomname)
+	err = h.ChatRoom.CreateChatRoom(request.Context(), username, roomname)
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 	}

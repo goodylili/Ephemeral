@@ -59,11 +59,3 @@ func (c Client) JoinChatRoom(ctx context.Context, username string, chatRoomID st
 	err = c.Client.Set(ctx, "chatroom:"+chatRoomID, newData, 15*time.Minute).Err()
 	return err
 }
-
-func (c Client) ChatRoomExists(ctx context.Context, chatRoomID string) (bool, error) {
-	exists, err := c.Client.Exists(ctx, "chatroom:"+chatRoomID).Result()
-	if err != nil {
-		return false, err
-	}
-	return exists == 1, nil
-}

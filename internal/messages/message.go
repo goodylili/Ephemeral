@@ -1,40 +1,41 @@
 package messages
 
 import (
-	"Ephemeral/internal/user"
 	"context"
 	"time"
 )
 
 type Message struct {
-	Content    string    `json:"content"`
-	User       user.User `json:"user"`
-	ChatRoomID string    `json:"chatRoomID"`
-	Time       time.Time `json:"time"`
+	MessageID  string
+	ChatRoomID string
+	Sender     string
+	Content    string
+	Timestamp  time.Time
 }
 
-type MessageRepo interface {
-	AddMessageToChatRoom(ctx context.Context, msg Message) error
-	GetMessages(ctx context.Context, chatRoomID string) ([]Message, error)
+type Repo interface {
+	AddMessage(ctx context.Context, chatRoomID, sender, content string) (*Message, error)
+	FetchAllMessages(ctx context.Context, chatRoomID string) ([]Message, error)
 }
 
-type MessageService struct {
-	Repo MessageRepo
+// Service is the blueprint for the chatroom logic
+type Service struct {
+	Repo Repo
 }
 
 // NewMessageService creates a new service
-func NewMessageService(repo MessageRepo) MessageService {
-	return MessageService{
+func NewMessageService(repo Repo) Service {
+	return Service{
 		Repo: repo,
 	}
 }
 
-// AddMessageToChatRoom adds a message to a chat room
-func (s MessageService) AddMessageToChatRoom(ctx context.Context, msg Message) error {
-	return s.Repo.AddMessageToChatRoom(ctx, msg)
+// AddMessage adds a new message to the chatroom
+func (s Service) AddMessage(ctx context.Context, chatRoomID, sender, content string) (*Message, error) {
+	return s.Repo.AddMessage(ctx, chatRoomID, sender, content)
 }
 
-// GetMessages gets all messages from a chat room
-func (s MessageService) GetMessages(ctx context.Context, chatRoomID string) ([]Message, error) {
-	return s.Repo.GetMessages(ctx, chatRoomID)
+// FetchAllMessages fetches all messages from the chatroom
+func (s Service) FetchAllMessages(ctx context.Context, chatRoomID string) ([]Message, error) {
+	return s.Repo.FetchAllMessages(ctx, chatRoomID)
 }

@@ -8,6 +8,7 @@ import (
 type Repo interface {
 	CreateChatRoom(ctx context.Context, username string, roomname string) error
 	JoinChatRoom(ctx context.Context, username string, chatRoomID string) error
+	ChatRoomExists(ctx context.Context, chatRoomID string) (bool, error)
 }
 
 // Service is the blueprint for the chatroom logic
